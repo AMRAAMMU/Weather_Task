@@ -1,5 +1,3 @@
-// lib/ui/screens/home_screen.dart
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../bloc/weather_bloc.dart';
@@ -14,7 +12,7 @@ class HomeScreen extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('img10.jpg'),
+            image: AssetImage('assets/img10.jpg'),
             fit: BoxFit.cover,
           ),
           color: Colors.transparent,
@@ -23,7 +21,6 @@ class HomeScreen extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
-              // Weather Display at the Top
               Container(
                 height: 300,
                 width: 400,
@@ -41,7 +38,6 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 16),
-              // City Input and Get Weather Button
               Column(
                 children: [
                   Row(
@@ -58,9 +54,9 @@ class HomeScreen extends StatelessWidget {
                   SizedBox(height: 16),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.symmetric(vertical: 20), // Adjust button height
-                      minimumSize: Size(200, 50), // Adjust button width
-                      backgroundColor: Colors.brown, // Change button color
+                      padding: EdgeInsets.symmetric(vertical: 20),
+                      minimumSize: Size(200, 50),
+                      backgroundColor: Colors.brown,
                     ),
                     onPressed: () {
                       BlocProvider.of<WeatherBloc>(context).add(
@@ -69,11 +65,10 @@ class HomeScreen extends StatelessWidget {
                     },
                     child: Text(
                       'Get Weather',
-                      style: TextStyle(fontSize: 20, color: Colors.orangeAccent.shade100), // Change text color and size
+                      style: TextStyle(fontSize: 20, color: Colors.orangeAccent.shade100),
                     ),
                   ),
                   SizedBox(height: 16),
-                  // Loading Indicator or Error Message
                   BlocBuilder<WeatherBloc, WeatherState>(
                     builder: (context, state) {
                       if (state is WeatherLoading) {
@@ -86,7 +81,8 @@ class HomeScreen extends StatelessWidget {
                     },
                   ),
                 ],
-              ),SizedBox(height: 100,),
+              ),
+              SizedBox(height: 100),
               Text(
                 'Random Text',
                 style: TextStyle(
@@ -96,7 +92,8 @@ class HomeScreen extends StatelessWidget {
                   fontWeight: FontWeight.w600,
                   height: 0,
                 ),
-              ),SizedBox(height: 10,),
+              ),
+              SizedBox(height: 10),
               Opacity(
                 opacity: 0.75,
                 child: Text(
